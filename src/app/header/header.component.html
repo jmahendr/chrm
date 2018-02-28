@@ -1,0 +1,29 @@
+<div class="container jumbotron"
+    fxLayout="row"
+    fxLayout.sm="column" 
+    fxLayout.xs="column" 
+    fxLayoutAlign.xs="start center"
+    fxLayoutAlign.sm="start center" 
+    fxLayoutAlign.gt-sm="center center" 
+    fxLayoutGap="10px">
+    
+  <div fxFlex fxFlex.gt-sm="20%">
+    <img src="/assets/images/logo.png" alt="Logo" class="logo">
+  </div>
+  <div fxFlex fxFlex.gt-sm="50%">
+    <h1>Promotion Planner</h1>
+    <p>Manage and Plan your Promotional Spending</p>
+  </div>
+  <div fxFlex></div>
+</div>
+
+<mat-toolbar color="primary">
+  <!--<span><img src="/assets/images/logo.png" height=30 width=41></span>-->
+  <a mat-button routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Home</a>
+  <a mat-button routerLink="/budget" routerLinkActive="active"><span class="fa fa-bar-chart fa-lg"></span> Budget</a>
+  <a mat-button routerLink="/offer" routerLinkActive="active"><span class="fa fa-flash fa-lg"></span> Offer</a>
+  <a mat-button routerLink="/claim" routerLinkActive="active"><span class="fa fa-dollar fa-lg"></span> Claim</a>
+  <a mat-button routerLink="/setup" routerLinkActive="active"><span class="fa fa-gears fa-lg"></span> Setup</a>
+  <span class="flex-spacer"></span>
+  <a mat-button ><span class="fa fa-sign-in"></span> Login</a>
+</mat-toolbar>
