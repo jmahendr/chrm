@@ -1,0 +1,439 @@
+{
+  "offers": [
+    {
+      "id": 1,
+      "code": "SUMMERSALES",
+      "name": "Summer Sales",
+      "description": "",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Hilman Associates"
+        },
+        {
+          "id": 2,
+          "type": "Customer Group",
+          "valueId": 3,
+          "valueText": "Utha Farmers Co-op"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 12,
+          "itemDescription": "Seed Starter AC122",
+          "limit": 120,
+          "currency": "USD",
+          "price": 33.12,
+          "discountType": "%",
+          "discountValue": 10
+        },
+        {
+          "id": 2,
+          "itemId": 14,
+          "itemDescription": "Drip Irrigation Emiter 8l/min",
+          "limit": 50,
+          "currency": "USD",
+          "price": 7.56,
+          "discountType": "NEW",
+          "discountValue": 5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "YESALES",
+      "name": "Yearend Sales",
+      "description": "",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Hilman Associates"
+        },
+        {
+          "id": 2,
+          "type": "Customer Group",
+          "valueId": 3,
+          "valueText": "Utha Farmers Co-op"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 12,
+          "itemDescription": "Seed Starter AC122",
+          "limit": 120,
+          "currency": "USD",
+          "price": 33.12,
+          "discountType": "%",
+          "discountValue": 10
+        },
+        {
+          "id": 2,
+          "itemId": 14,
+          "itemDescription": "Drip Irrigation Emiter 8l/min",
+          "limit": 50,
+          "currency": "USD",
+          "price": 7.56,
+          "discountType": "NEW",
+          "discountValue": 5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "code": "CHRISTMASSALE2018",
+      "name": "Christmas 2018",
+      "description": "Christmas Sales FY 2018",
+      "type": "Accrual",
+      "startDate": "2018-10-01",
+      "endDate": "2018-12-31",
+      "qualifiers": [
+        {
+          "id": 1,
+          "type": "Customer",
+          "valueId": 1,
+          "valueText": "Business World"
+        }
+      ],
+      "modifiers": [
+        {
+          "id": 1,
+          "itemId": 101,
+          "itemDescription": "TOYS",
+          "limit": 120,
+          "currency": "USD",
+          "price": 10,
+          "discountType": "%",
+          "discountValue": 10
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Hilman Associates"
+    },
+    {
+      "id": 2,
+      "name": "Business World"
+    },
+    {
+      "id": 3,
+      "name": "CDS Inc"
+    },
+    {
+      "id": 4,
+      "name": "A.C Networks"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "description": "Desktop Computers",
+      "uom": "Each",
+      "listprice": 100.43,
+      "currency": "USD"
+    },
+    {
+      "id": 2,
+      "description": "Laptop - Standard",
+      "uom": "Each",
+      "listprice": 138,
+      "currency": "USD"
+    },
+    {
+      "id": 3,
+      "description": "Laptop - Gaming",
+      "uom": "Each",
+      "listprice": 221.32,
+      "currency": "USD"
+    },
+    {
+      "id": 4,
+      "description": "Printer - Deskjet",
+      "uom": "Each",
+      "listprice": 70.11,
+      "currency": "USD"
+    },
+    {
+      "id": 5,
+      "description": "Printer - Laser",
+      "uom": "Each",
+      "listprice": 120.22,
+      "currency": "USD"
+    }
+  ]
+}

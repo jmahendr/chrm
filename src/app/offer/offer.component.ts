@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, Inject } from '@angular/core';
+import { OfferService } from "../services/offer.service";
+import { Offer } from "../shared/offer";
+import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-offer',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfferComponent implements OnInit {
 
-  constructor() { }
+  offers: Offer[];
+  offerError: string;
+  displayedColumns = ['id', 'type', 'name', 'code', 'startDate', 'endDate'];
+  dataSource = new MatTableDataSource<Offer>(this.offers);
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  /**
+   * Set the paginator after the view init since this component will
+   * be able to query its view for the initialized paginator.
+   */
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  constructor(private offerservice: OfferService) { }
 
   ngOnInit() {
+    this.offerservice.getOffers()
+    .subscribe(data => {this.offers = data;
+      this.dataSource = new MatTableDataSource<Offer>(this.offers);
+      this.dataSource.paginator = this.paginator;
+      },
+    errorMsg => {this.offerError = <any>errorMsg})
   }
 
 }

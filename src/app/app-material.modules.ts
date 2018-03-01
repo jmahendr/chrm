@@ -3,17 +3,23 @@ import {
     MatListModule, 
     MatButtonModule,
     MatToolbarModule, 
-    MatCheckboxModule 
+    MatCheckboxModule,
+    MatTableModule, 
+    MatPaginatorModule
     } from "@angular/material";
 
 @NgModule({
     imports: [MatListModule, 
         MatButtonModule, 
         MatToolbarModule,
-        MatCheckboxModule],
+        MatCheckboxModule,
+        MatTableModule,
+        MatPaginatorModule],
     exports: [MatListModule, 
         MatButtonModule, 
         MatToolbarModule,
-        MatCheckboxModule]
+        MatCheckboxModule,
+        MatTableModule,
+        MatPaginatorModule]
   })
   export class AppMaterialModule { }
