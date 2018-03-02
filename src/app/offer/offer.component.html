@@ -13,12 +13,15 @@
           -->
       </mat-expansion-panel-header>
 
-      Some serch criteria will come here
-
-      <div>
-        <a mat-raised-button (click)="search()">Search</a>
-        <a mat-raised-button (click)="query()">Reset</a>
-      </div>
+        <form novalidate [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+          <p>  
+            <input matInput formControlName="name" placeholder="Offer Name" type="text">
+          </p>
+          <button type="submit" mat-raised-button>Submit</button>
+          <button type="reset" mat-raised-button>Clear</button>
+          <a mat-raised-button (click)="query()" style="float: right;">Reset</a>
+        </form>
+        <br>
       </mat-expansion-panel>
   </mat-accordion>
   <br>

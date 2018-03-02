@@ -9,12 +9,17 @@ import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular
   templateUrl: './offer.component.html',
   styleUrls: ['./offer.component.scss']
 })
+
 export class OfferComponent implements OnInit {
 
   offers: Offer[];
   offerError: string =  undefined;
   displayedColumns = ['id', 'type', 'name', 'description', 'code', 'startDate', 'endDate'];
   dataSource = new MatTableDataSource<Offer>(this.offers);
+
+  queryParams = {};
+
+  searchForm: FormGroup;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -26,12 +31,17 @@ export class OfferComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  constructor(private offerservice: OfferService) { }
+  constructor(private offerservice: OfferService,
+    private fb: FormBuilder) { 
+      this.createSearchForm();
+    }
+
   ngOnInit() {
     this.queryOffers();
   }
 
   private  queryOffers() {
+    console.debug("queryOffers fired....");
     this.offerservice.getOffers()
     .subscribe(data => {
         this.offers = data;
@@ -40,8 +50,8 @@ export class OfferComponent implements OnInit {
       errorMsg => { this.offerError = <any>errorMsg; });
   };
 
-  private searchOffers() {
-    let query = {name_like:'Summer'}
+  private searchOffers(query: Object) {
+    console.debug("searchOffers fired....");
     this.offerservice.findOffers(query)
     .subscribe(data => {
       this.offers = data;
@@ -50,18 +60,41 @@ export class OfferComponent implements OnInit {
     errorMsg => { this.offerError = <any>errorMsg; });
   }
   
-
-  search() {
-    this.offers = null;
-    this.dataSource = new MatTableDataSource<Offer>();
-    this.searchOffers();
-    console.log("search clicked");
-  }
-
   query() {
+    console.debug("query fired....");
     this.offers = null;
     this.dataSource = new MatTableDataSource<Offer>();
     this.queryOffers();
+  }
+
+  /**
+   * Search Form Related Code
+   */
+  createSearchForm() {
+    this.searchForm = this.fb.group({
+      name:''
+    });
+  }
+
+  onSubmit(){
+    this.queryParams = this.searchForm.value;
+
+    let q ={};
+    for(var key in this.queryParams)
+    {
+      // check whether the key exists in the obj
+      if (this.queryParams.hasOwnProperty(key))
+      {
+        // use key and its value
+        let newkey = key+"_like";
+        q[newkey] = this.queryParams[key];
+      }
+    }
+    console.debug("The query string is " + JSON.stringify(q));
+
+    this.offers = null;
+    this.dataSource = new MatTableDataSource<Offer>();
+    this.searchOffers(q);
   }
 
 }
