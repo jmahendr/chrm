@@ -11,8 +11,8 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 export class OfferComponent implements OnInit {
 
   offers: Offer[];
-  offerError: string;
-  displayedColumns = ['id', 'type', 'name', 'code', 'startDate', 'endDate'];
+  offerError: string =  undefined;
+  displayedColumns = ['id', 'type', 'name', 'description', 'code', 'startDate', 'endDate'];
   dataSource = new MatTableDataSource<Offer>(this.offers);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -29,11 +29,17 @@ export class OfferComponent implements OnInit {
 
   ngOnInit() {
     this.offerservice.getOffers()
-    .subscribe(data => {this.offers = data;
-      this.dataSource = new MatTableDataSource<Offer>(this.offers);
-      this.dataSource.paginator = this.paginator;
+    .subscribe(data => {
+        this.offers = data
+        this.dataSource = new MatTableDataSource<Offer>(this.offers);
+        this.dataSource.paginator = this.paginator;
+        console.log('hello');
       },
-    errorMsg => {this.offerError = <any>errorMsg})
+      errorMsg => {
+        this.offerError = <any>errorMsg; 
+        console.log('error ' + errorMsg);
+      }
+    );
   }
 
 }

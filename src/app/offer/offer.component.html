@@ -6,9 +6,21 @@
   <br>
   <br>
 </p>
-<br>
+  <div>
+    <a mat-raised-button routerLink="/offercreate" routerLinkActive="active"><span color="primary" class="fa fa-plus fa-lg"></span> Create</a>
+  </div>
 
-  <div class="example-container mat-elevation-z8">
+<br>
+  <div [hidden]="offers || offerError">
+    <mat-progress-spinner style="margin:0 auto;" mode="indeterminate"></mat-progress-spinner>
+    <h4 style="text-align:center;">Loading . . . Please Wait</h4>
+  </div>
+  <div *ngIf="offerError">
+      <h2>Error</h2>
+      <h4>{{offerError}}</h4>
+    </div>
+
+  <div  class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource">
   
       <!--- Note that these columns can be defined in any order.
@@ -49,6 +61,12 @@
         <mat-header-cell *matHeaderCellDef> End Date </mat-header-cell>
         <mat-cell *matCellDef="let offer"> {{offer.endDate | date}} </mat-cell>
       </ng-container>      
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> End Date </mat-header-cell>
+          <mat-cell *matCellDef="let offer"> {{offer.description}} </mat-cell>
+        </ng-container>  
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

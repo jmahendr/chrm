@@ -5,7 +5,8 @@ import {
     MatToolbarModule, 
     MatCheckboxModule,
     MatTableModule, 
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
     } from "@angular/material";
 
 @NgModule({
@@ -14,12 +15,14 @@ import {
         MatToolbarModule,
         MatCheckboxModule,
         MatTableModule,
-        MatPaginatorModule],
+        MatPaginatorModule,
+        MatProgressSpinnerModule],
     exports: [MatListModule, 
         MatButtonModule, 
         MatToolbarModule,
         MatCheckboxModule,
         MatTableModule,
-        MatPaginatorModule]
+        MatPaginatorModule,
+        MatProgressSpinnerModule]
   })
   export class AppMaterialModule { }
