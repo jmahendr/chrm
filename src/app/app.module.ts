@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RestangularModule, Restangular } from "ngx-restangular";
 import { RestangularConfigFactory } from "./shared/restConfig";
 import { baseurl, serverurl } from "./shared/baseurl";
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -32,7 +33,8 @@ import { AppRoutingModule } from "./app-routing/app-routing.module";
     AppMaterialModule,
     AppRoutingModule,
     FlexLayoutModule,
-    RestangularModule.forRoot(RestangularConfigFactory)
+    RestangularModule.forRoot(RestangularConfigFactory),
+    FormsModule
   ],
   providers: [
     OfferService,

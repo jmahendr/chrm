@@ -12,4 +12,8 @@ export class OfferService {
   getOffers() : Observable<Offer[]> {
     return this.restangular.all('offers').getList();
   }
+
+  findOffers(query:Object) {
+    return this.restangular.all('offers').getList(query);
+  }
 }

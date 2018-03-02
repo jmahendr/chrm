@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit, Inject } from '@angular/core';
 import { OfferService } from "../services/offer.service";
 import { Offer } from "../shared/offer";
 import {MatPaginator, MatTableDataSource} from '@angular/material';
+import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-offer',
@@ -26,20 +27,41 @@ export class OfferComponent implements OnInit {
   }
 
   constructor(private offerservice: OfferService) { }
-
   ngOnInit() {
+    this.queryOffers();
+  }
+
+  private  queryOffers() {
     this.offerservice.getOffers()
     .subscribe(data => {
-        this.offers = data
+        this.offers = data;
         this.dataSource = new MatTableDataSource<Offer>(this.offers);
-        this.dataSource.paginator = this.paginator;
-        console.log('hello');
-      },
-      errorMsg => {
-        this.offerError = <any>errorMsg; 
-        console.log('error ' + errorMsg);
-      }
-    );
+        this.dataSource.paginator = this.paginator;},
+      errorMsg => { this.offerError = <any>errorMsg; });
+  };
+
+  private searchOffers() {
+    let query = {name_like:'Summer'}
+    this.offerservice.findOffers(query)
+    .subscribe(data => {
+      this.offers = data;
+      this.dataSource = new MatTableDataSource<Offer>(this.offers);
+      this.dataSource.paginator = this.paginator;},
+    errorMsg => { this.offerError = <any>errorMsg; });
+  }
+  
+
+  search() {
+    this.offers = null;
+    this.dataSource = new MatTableDataSource<Offer>();
+    this.searchOffers();
+    console.log("search clicked");
+  }
+
+  query() {
+    this.offers = null;
+    this.dataSource = new MatTableDataSource<Offer>();
+    this.queryOffers();
   }
 
 }

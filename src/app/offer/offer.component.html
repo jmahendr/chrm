@@ -1,11 +1,27 @@
-<p>
-  offer works!
+<div class="componentContainer">
+
+  <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              <i style="padding: 2px;" class="fa fa-search"></i> Search
+          </mat-panel-title>
+          <!--
+          <mat-panel-description>
+              Specify search criteria here...
+            </mat-panel-description>
+          -->
+      </mat-expansion-panel-header>
+
+      Some serch criteria will come here
+
+      <div>
+        <a mat-raised-button (click)="search()">Search</a>
+        <a mat-raised-button (click)="query()">Reset</a>
+      </div>
+      </mat-expansion-panel>
+  </mat-accordion>
   <br>
-  Here we should have a search region.
-  <br>
-  <br>
-  <br>
-</p>
   <div>
     <a mat-raised-button routerLink="/offercreate" routerLinkActive="active"><span color="primary" class="fa fa-plus fa-lg"></span> Create</a>
   </div>
@@ -64,7 +80,7 @@
 
       <!-- Description Column -->
       <ng-container matColumnDef="description">
-          <mat-header-cell *matHeaderCellDef> End Date </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
           <mat-cell *matCellDef="let offer"> {{offer.description}} </mat-cell>
         </ng-container>  
 
@@ -79,3 +95,5 @@
 
   </div>
   <br>
+
+</div>
