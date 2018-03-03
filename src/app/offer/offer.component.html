@@ -14,12 +14,17 @@
       </mat-expansion-panel-header>
 
         <form novalidate [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-          <p>  
-            <input matInput formControlName="name" placeholder="Offer Name" type="text">
+          <p>
+            <label for="name">Offer Name</label>
+            <input matInput formControlName="name" id ="name" placeholder="Enter Offer Name" type="text">
           </p>
+          <p>
+              <label for="code">Offer Code</label>
+              <input matInput formControlName="code" id ="code" placeholder="Enter Offer Code" type="text">
+            </p>
           <button type="submit" mat-raised-button>Submit</button>
           <button type="reset" mat-raised-button>Clear</button>
-          <a mat-raised-button (click)="query()" style="float: right;">Reset</a>
+          <button mat-raised-button (click)="query()" style="float: right;" type="reset">Reset</button>
         </form>
         <br>
       </mat-expansion-panel>

@@ -72,7 +72,8 @@ export class OfferComponent implements OnInit {
    */
   createSearchForm() {
     this.searchForm = this.fb.group({
-      name:''
+      name:'',
+      code: ''
     });
   }
 
@@ -87,7 +88,10 @@ export class OfferComponent implements OnInit {
       {
         // use key and its value
         let newkey = key+"_like";
-        q[newkey] = this.queryParams[key];
+
+        //only add non null query params to new Query Object.
+        if(this.queryParams[key])
+          q[newkey] = this.queryParams[key];
       }
     }
     console.debug("The query string is " + JSON.stringify(q));
