@@ -7,7 +7,12 @@ import {
     MatTableModule, 
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
     } from "@angular/material";
 
 @NgModule({
@@ -18,8 +23,13 @@ import {
         MatTableModule,
         MatPaginatorModule,
         MatProgressSpinnerModule,
-        MatExpansionModule],
-
+        MatExpansionModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule],
+    
     exports: [MatListModule, 
         MatButtonModule, 
         MatToolbarModule,
@@ -27,6 +37,11 @@ import {
         MatTableModule,
         MatPaginatorModule,
         MatProgressSpinnerModule,
-        MatExpansionModule]
+        MatExpansionModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule]
   })
   export class AppMaterialModule { }

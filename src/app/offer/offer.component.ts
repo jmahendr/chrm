@@ -12,13 +12,23 @@ import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular
 
 export class OfferComponent implements OnInit {
 
+  constructor(private offerservice: OfferService,
+    private fb: FormBuilder ) { 
+      this.createSearchForm();
+    }
+
+  ngOnInit() {
+    if(this.mode == 'summary')
+      this.queryOffers();
+  }
+
+  mode='summary';
   offers: Offer[];
   offerError: string =  undefined;
   displayedColumns = ['id', 'type', 'name', 'description', 'code', 'startDate', 'endDate'];
   dataSource = new MatTableDataSource<Offer>(this.offers);
 
   queryParams = {};
-
   searchForm: FormGroup;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,14 +41,7 @@ export class OfferComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  constructor(private offerservice: OfferService,
-    private fb: FormBuilder) { 
-      this.createSearchForm();
-    }
 
-  ngOnInit() {
-    this.queryOffers();
-  }
 
   private  queryOffers() {
     console.debug("queryOffers fired....");
@@ -73,7 +76,9 @@ export class OfferComponent implements OnInit {
   createSearchForm() {
     this.searchForm = this.fb.group({
       name:'',
-      code: ''
+      code: '',
+      startDate: '',
+      endDate:''
     });
   }
 
@@ -101,4 +106,29 @@ export class OfferComponent implements OnInit {
     this.searchOffers(q);
   }
 
+  /**
+   * Section for Offer Create
+   */
+
+   onCreateBtn() {
+     this.mode = 'create';
+   }
+
+   goBack() {
+     this.mode = 'summary';
+   }
+
+   step = 0;
+
+   setStep(index: number) {
+     this.step = index;
+   }
+ 
+   nextStep() {
+     this.step++;
+   }
+ 
+   prevStep() {
+     this.step--;
+   }
 }

@@ -1,107 +1,210 @@
 <div class="componentContainer">
+  <div *ngIf="mode=='summary'">
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i style="padding: 2px;" class="fa fa-search"></i> Search
+            </mat-panel-title>
+            <!--
+            <mat-panel-description>
+                Specify search criteria here...
+              </mat-panel-description>
+            -->
+        </mat-expansion-panel-header>
 
-  <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-              <i style="padding: 2px;" class="fa fa-search"></i> Search
-          </mat-panel-title>
-          <!--
-          <mat-panel-description>
-              Specify search criteria here...
-            </mat-panel-description>
-          -->
-      </mat-expansion-panel-header>
-
-        <form novalidate [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-          <p>
-            <label for="name">Offer Name</label>
-            <input matInput formControlName="name" id ="name" placeholder="Enter Offer Name" type="text">
-          </p>
-          <p>
-              <label for="code">Offer Code</label>
-              <input matInput formControlName="code" id ="code" placeholder="Enter Offer Code" type="text">
+          <form novalidate [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+            <p>
+              <mat-input-container>
+                <input matInput formControlName="name" id ="name" placeholder="Enter Offer Name" type="text">
+              </mat-input-container>
+            
+              <mat-input-container>
+                <input matInput formControlName="code" id ="code" placeholder="Enter Offer Code" type="text">
+              </mat-input-container>
             </p>
-          <button type="submit" mat-raised-button>Submit</button>
-          <button type="reset" mat-raised-button>Clear</button>
-          <button mat-raised-button (click)="query()" style="float: right;" type="reset">Reset</button>
-        </form>
-        <br>
-      </mat-expansion-panel>
-  </mat-accordion>
-  <br>
-  <div>
-    <a mat-raised-button routerLink="/offercreate" routerLinkActive="active"><span color="primary" class="fa fa-plus fa-lg"></span> Create</a>
-  </div>
-
-<br>
-  <div [hidden]="offers || offerError">
-    <mat-progress-spinner style="margin:0 auto;" mode="indeterminate"></mat-progress-spinner>
-    <h4 style="text-align:center;">Loading . . . Please Wait</h4>
-  </div>
-  <div *ngIf="offerError">
-      <h2>Error</h2>
-      <h4>{{offerError}}</h4>
+            <p>
+                <mat-input-container>
+                  <input matInput formControlName="startDate" id ="startDate" placeholder="Enter Offer startDate" type="date">
+                </mat-input-container>
+              
+                <mat-input-container>
+                  <input matInput formControlName="endDate" id ="endDate" placeholder="Enter Offer endDate" type="date">
+                </mat-input-container>
+              </p>
+            <button type="submit" mat-raised-button>
+              <span color="primary" class="fa fa-search fa-lg"></span> Search</button>
+            <button type="reset" mat-raised-button>
+              <span color="primary" class="fa fa-eraser fa-lg"></span> Clear</button>
+            <button mat-raised-button (click)="query()" type="reset" class="floatRight">
+                <span color="primary" class="fa fa-undo fa-lg"></span> Reset</button>
+            </form>
+          <br>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <br>
+    <div>
+      <a mat-raised-button (click)="onCreateBtn()"><span color="primary" class="fa fa-plus fa-lg"></span> Create</a>
     </div>
 
-  <div  class="example-container mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource">
-  
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-  
-      <!-- Id Column -->
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef> Id. </mat-header-cell>
-        <mat-cell *matCellDef="let offer"> {{offer.id}} </mat-cell>
-      </ng-container>
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let offer"> <a href ="www.google.com" >{{offer.name}} </a></mat-cell>
-      </ng-container>
-  
-      <!-- Code Column -->
-      <ng-container matColumnDef="code">
-        <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
-        <mat-cell *matCellDef="let offer"> {{offer.code}} </mat-cell>
-      </ng-container>
-
-      <!-- Type Column -->
-      <ng-container matColumnDef="type">
-        <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
-        <mat-cell *matCellDef="let offer"> {{offer.type}} </mat-cell>
-      </ng-container>
-
-      <!-- StartDate Column -->
-      <ng-container matColumnDef="startDate">
-        <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
-        <mat-cell *matCellDef="let offer"> {{offer.startDate | date}} </mat-cell>
-      </ng-container>
-
-      <!-- EndDate Column -->
-      <ng-container matColumnDef="endDate">
-        <mat-header-cell *matHeaderCellDef> End Date </mat-header-cell>
-        <mat-cell *matCellDef="let offer"> {{offer.endDate | date}} </mat-cell>
-      </ng-container>      
-
-      <!-- Description Column -->
-      <ng-container matColumnDef="description">
-          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
-          <mat-cell *matCellDef="let offer"> {{offer.description}} </mat-cell>
-        </ng-container>  
-
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-    <mat-paginator #paginator
-      [pageSize]="5"
-      [pageSizeOptions]="[5, 10, 20]"
-      [showFirstLastButtons]="true">
-    </mat-paginator>
-
-  </div>
   <br>
+    <div [hidden]="offers || offerError">
+      <mat-progress-spinner style="margin:0 auto;" mode="indeterminate"></mat-progress-spinner>
+      <h4 style="text-align:center;">Loading . . . Please Wait</h4>
+    </div>
+    <div *ngIf="offerError">
+        <h2>Error</h2>
+        <h4>{{offerError}}</h4>
+      </div>
+
+    <div  class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource">
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> Id. </mat-header-cell>
+          <mat-cell *matCellDef="let offer"> {{offer.id}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let offer"> <a href ="www.google.com" >{{offer.name}} </a></mat-cell>
+        </ng-container>
+    
+        <!-- Code Column -->
+        <ng-container matColumnDef="code">
+          <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+          <mat-cell *matCellDef="let offer"> {{offer.code}} </mat-cell>
+        </ng-container>
+
+        <!-- Type Column -->
+        <ng-container matColumnDef="type">
+          <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+          <mat-cell *matCellDef="let offer"> {{offer.type}} </mat-cell>
+        </ng-container>
+
+        <!-- StartDate Column -->
+        <ng-container matColumnDef="startDate">
+          <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
+          <mat-cell *matCellDef="let offer"> {{offer.startDate | date}} </mat-cell>
+        </ng-container>
+
+        <!-- EndDate Column -->
+        <ng-container matColumnDef="endDate">
+          <mat-header-cell *matHeaderCellDef> End Date </mat-header-cell>
+          <mat-cell *matCellDef="let offer"> {{offer.endDate | date}} </mat-cell>
+        </ng-container>      
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+            <mat-cell *matCellDef="let offer"> {{offer.description}} </mat-cell>
+          </ng-container>  
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator #paginator
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 20]"
+        [showFirstLastButtons]="true">
+      </mat-paginator>
+
+    </div>
+  </div>
+<!-- 
+
+    Create Page 
+
+-->
+
+  <div *ngIf="mode=='create'">
+    
+  <br>
+
+  <!-- Start of Create From -->
+  <mat-accordion class="create-headers-align">
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Offer Details
+          </mat-panel-title>
+          <mat-panel-description>
+            Specify basic offer details...
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field>
+          <input matInput placeholder="First name">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput type="number" min="1" placeholder="Age">
+        </mat-form-field>
+    
+        <mat-action-row>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Qualifiers
+          </mat-panel-title>
+          <mat-panel-description>
+            Specify customer eligibility details...
+            <mat-icon>map</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field>
+          <input matInput placeholder="Country">
+        </mat-form-field>
+    
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Products and Discounts
+          </mat-panel-title>
+          <mat-panel-description>
+            Specify products and discount details...
+            <mat-icon>date_range</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field>
+          <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+        </mat-form-field>
+        <mat-datepicker #picker></mat-datepicker>
+    
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" (click)="nextStep()">End</button>
+          <button type="submit" mat-raised-button >
+            <span color="primary" class="fa fa-save fa-lg"></span> Save</button>
+          <button type="reset" mat-raised-button>
+            <span color="primary" class="fa fa-eraser fa-lg"></span> Clear</button>
+          <a mat-raised-button (click)="goBack()">
+            <span color="primary" class="fa fa-undo fa-lg"></span> Cancel</a>
+        </mat-action-row>
+      </mat-expansion-panel>
+    
+    </mat-accordion>
+    
+    
+    <!-- End of Create From -->
+  </div>
 
 </div>
