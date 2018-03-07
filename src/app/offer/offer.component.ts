@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit, Inject } from '@angular/core';
 import { OfferService } from "../services/offer.service";
 import { Offer } from "../shared/offer";
 import {MatPaginator, MatTableDataSource} from '@angular/material';
-import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-offer',
@@ -110,12 +110,16 @@ export class OfferComponent implements OnInit {
    * Section for Offer Create
    */
 
+   offerForm: FormGroup;
+
    onCreateBtn() {
      this.mode = 'create';
+     this.createOfferForm();
    }
 
    goBack() {
      this.mode = 'summary';
+     this.query();
    }
 
    step = 0;
@@ -131,4 +135,39 @@ export class OfferComponent implements OnInit {
    prevStep() {
      this.step--;
    }
+
+   createOfferForm() {
+    this.offerForm = this.fb.group({
+      name:'',
+      code: '',
+      description:'',
+      startDate: '',
+      endDate:'',
+      type:'',
+      status:'',
+      qualifiers:this.fb.array([this.createQualifiers()]),
+      modifiers:[]
+    });
+  }
+
+  createQualifiers(){
+    return this.fb.group({
+      type:'',
+      valueId: '',
+      valueText: ''
+    });
+  }
+
+  addQualifier() {
+    let qualifiers = <FormArray>this.offerForm.get('qualifiers');
+    qualifiers.push(this.createQualifiers());
+  }
+  removeQualifier(i) {
+    let qualifiers = <FormArray>this.offerForm.get('qualifiers');
+    qualifiers.removeAt(i);
+  }
+
+  onOfferFormSubmit() {
+    console.log(this.offerForm.value);
+  }
 }
