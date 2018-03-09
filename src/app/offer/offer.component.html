@@ -192,9 +192,11 @@
                   </div>  
                 </mat-select>
               </mat-form-field>
+
               <mat-form-field>
-                <input matInput formControlName="valueText" placeholder="Qualifier Name">
+                <input matInput formControlName="valueText" placeholder="Qualifier Name" readonly>
               </mat-form-field>
+              <a mat-raised-button (click)="openDialog(i)">Pick one</a>
               <a mat-button color="warn" (click)="removeQualifier(i)">
                   <span class="fa fa-ban fa-lg"></span> Remove</a>
             </div>

@@ -2,7 +2,8 @@ import { Component, ViewChild, OnInit, Inject } from '@angular/core';
 import { OfferService } from "../services/offer.service";
 import { Offer } from "../shared/offer";
 import {MatPaginator, MatTableDataSource} from '@angular/material';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-offer',
@@ -13,7 +14,8 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 export class OfferComponent implements OnInit {
 
   constructor(private offerservice: OfferService,
-    private fb: FormBuilder ) { 
+    private fb: FormBuilder,
+    public dialog: MatDialog ) { 
       this.createSearchForm();
     }
 
@@ -182,5 +184,38 @@ export class OfferComponent implements OnInit {
       this.qualtype = data["qualtype"]; 
       console.log(JSON.stringify(this.qualtype))});
   }
+
+  openDialog(i): void {
+    let dialogRef = this.dialog.open(QualLOV, {
+      width: '250px',
+      data: { t: 1}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(i + ' The dialog was closed ' + result);
+      let qualifiers = <FormArray>this.offerForm.get('qualifiers');
+      let valueTextControl = <FormControl>qualifiers.at(i).get('valueText')
+      
+      console.log('trying to get fc ' + valueTextControl.value);
+      valueTextControl.setValue(result);
+      
+    });
+  } 
 }
 
+
+@Component({
+  selector: 'qualLOV-dialog',
+  templateUrl: 'qualLOV-dialog.html',
+})
+export class QualLOV {
+
+  constructor(
+    public dialogRef: MatDialogRef<QualLOV>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}

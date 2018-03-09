@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { OfferComponent } from './offer/offer.component';
+import { OfferComponent, QualLOV } from './offer/offer.component';
 import { HomeComponent } from './home/home.component';
 import { OfferService } from "./services/offer.service";
 
@@ -26,7 +26,8 @@ import { AppRoutingModule } from "./app-routing/app-routing.module";
     HeaderComponent,
     FooterComponent,
     OfferComponent,
-    HomeComponent
+    HomeComponent,
+    QualLOV
   ],
   imports: [
     BrowserModule,
@@ -38,6 +39,7 @@ import { AppRoutingModule } from "./app-routing/app-routing.module";
     FormsModule,
     ReactiveFormsModule
   ],
+  entryComponents: [QualLOV],
   providers: [
     OfferService,
     {provide : 'BaseURL', useValue: baseurl}
