@@ -20,6 +20,7 @@ export class OfferComponent implements OnInit {
   ngOnInit() {
     if(this.mode == 'summary')
       this.queryOffers();
+    this.loadLookups();
   }
 
   mode='summary';
@@ -111,6 +112,8 @@ export class OfferComponent implements OnInit {
    */
 
    offerForm: FormGroup;
+   qualtype = {};
+   offerData = {}
 
    onCreateBtn() {
      this.mode = 'create';
@@ -168,6 +171,16 @@ export class OfferComponent implements OnInit {
   }
 
   onOfferFormSubmit() {
+    this.offerData = this.offerForm.value;
     console.log(this.offerForm.value);
+    console.log(this.offerData);
+  }
+
+  loadLookups() {
+    this.offerservice.getQualTypes()
+    .subscribe(data => {
+      this.qualtype = data["qualtype"]; 
+      console.log(JSON.stringify(this.qualtype))});
   }
 }
+

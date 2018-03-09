@@ -179,11 +179,18 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           
+          
+
           <div formArrayName="qualifiers" 
             *ngFor="let qualifer of offerForm.controls.qualifiers.controls;let i=index;">
             <div [formGroupName]="i">
               <mat-form-field>
-                <input matInput formControlName="type" placeholder="Qualifier Type">
+                <!--<input matInput formControlName="type" placeholder="Qualifier Type">-->
+                <mat-select formControlName="type" placeholder="Qualifier Type">
+                  <div *ngFor="let qt of qualtype">
+                    <mat-option value="{{qt['value']}}">{{qt.value}}</mat-option>
+                  </div>  
+                </mat-select>
               </mat-form-field>
               <mat-form-field>
                 <input matInput formControlName="valueText" placeholder="Qualifier Name">
@@ -192,7 +199,7 @@
                   <span class="fa fa-ban fa-lg"></span> Remove</a>
             </div>
           </div>
-     
+          
           <mat-action-row>
             <a mat-button color="primary" (click)="addQualifier()">
               <span class="fa fa-plus fa-lg"></span> Add Qualifier</a>

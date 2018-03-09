@@ -435,5 +435,23 @@
       "listprice": 120.22,
       "currency": "USD"
     }
+  ],
+  "lookups" : [
+    {
+      "qualtype": [
+        { 
+          "id":1,
+          "value": "Customer"
+        }, 
+        {
+          "id":2,
+          "value": "Customer Group"
+        }, 
+        {
+          "id":3,
+          "value": "Territory"
+        }
+      ]
+    }
   ]
 }

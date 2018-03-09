@@ -16,4 +16,9 @@ export class OfferService {
   findOffers(query:Object) {
     return this.restangular.all('offers').getList(query);
   }
+
+  getQualTypes() {
+    return this.restangular.all('lookups').getList()
+    .map(lookups => lookups[0]);
+  }
 }
