@@ -115,7 +115,9 @@ export class OfferComponent implements OnInit {
 
    offerForm: FormGroup;
    qualtype = {};
-   offerData = {}
+   offerData = {};
+   offerCreateErr = null;
+   submitAction = false;
 
    onCreateBtn() {
      this.mode = 'create';
@@ -173,9 +175,27 @@ export class OfferComponent implements OnInit {
   }
 
   onOfferFormSubmit() {
-    this.offerData = this.offerForm.value;
-    console.log(this.offerForm.value);
-    console.log(this.offerData);
+
+    this.submitAction = true;
+    console.debug(this.offerData);
+    this.offerservice.postOffer(this.offerForm.value)
+      .subscribe(offer => {
+        this.submitAction = false;
+        this.offerData = offer;
+        let confirmDialogRef = this.dialog.open(ConfirmDialog, {
+          width: '500px',
+          data:  this.offerData
+        });
+
+        confirmDialogRef.afterClosed().subscribe(result => {
+          console.debug('The confirm dialog was closed with ');
+        });//end of afterClose
+
+      },
+      error => {
+        this.offerCreateErr = <any>error;
+        this.submitAction = false;
+      });
   }
 
   loadLookups() {
@@ -209,14 +229,15 @@ export class OfferComponent implements OnInit {
          
         console.debug('trying to get Text fc ' + valueTextControl.value);
         console.debug('trying to get Id fc ' + valueIdControl.value);
-    }
-      
-      
-    });
-  } 
-}
+      }
+    });//end of afterClose
+  }//end of openDialog 
+}//enf of OfferComponent
 
 
+/** 
+ * Dialog for Qualifier LOV
+*/
 @Component({
   selector: 'qualLOV-dialog',
   templateUrl: 'qualLOV-dialog.html',
@@ -231,4 +252,24 @@ export class QualLOV {
     this.dialogRef.close();
   }
 
-}
+}//end of QualLOV
+
+
+/** 
+ * Dialog for Confirmation
+*/
+@Component({
+  selector: 'confirmation-dialog',
+  templateUrl: 'confirmation-dialog.html',
+})
+export class ConfirmDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}//end of ConfirmDialog

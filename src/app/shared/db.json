@@ -379,6 +379,201 @@
           "discountValue": 10
         }
       ]
+    },
+    {
+      "name": "d",
+      "code": "d",
+      "description": "dd",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer",
+          "valueId": "2",
+          "valueText": "33"
+        }
+      ],
+      "modifiers": null,
+      "id": 13
+    },
+    {
+      "name": "Summer Discount",
+      "code": "DiscSummer",
+      "description": "Summer DIscount sales.",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer",
+          "valueId": "1",
+          "valueText": "Paramount Inc"
+        },
+        {
+          "type": "Customer Group",
+          "valueId": "3",
+          "valueText": "City Corporation"
+        },
+        {
+          "type": "Territory",
+          "valueId": "33",
+          "valueText": "Bangalore"
+        }
+      ],
+      "modifiers": null,
+      "id": 14
+    },
+    {
+      "name": "HiTech",
+      "code": "HTOFFR",
+      "description": "Hightect offers....",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer Group",
+          "valueId": "2",
+          "valueText": "cg1"
+        }
+      ],
+      "modifiers": null,
+      "id": 15
+    },
+    {
+      "name": "Food Discounts",
+      "code": "FOOD4ALL",
+      "description": "Food discounts under program food for all...",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer",
+          "valueId": "1",
+          "valueText": "C1"
+        },
+        {
+          "type": "Customer Group",
+          "valueId": "2",
+          "valueText": "Group1"
+        }
+      ],
+      "modifiers": null,
+      "id": 16
+    },
+    {
+      "name": "Winter Sale",
+      "code": "WINSALE",
+      "description": "Sales promotion for winter...",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer Group",
+          "valueId": "1",
+          "valueText": "Milk Producers Fed"
+        }
+      ],
+      "modifiers": null,
+      "id": 17
+    },
+    {
+      "name": "Sale Mar 2018",
+      "code": "S201803",
+      "description": "Sale for March 2018",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Territory",
+          "valueId": "1",
+          "valueText": "Bangalore South"
+        }
+      ],
+      "modifiers": null,
+      "id": 18
+    },
+    {
+      "name": "Discounts for Feb2018",
+      "code": "D201802",
+      "description": "Discount for Feb 2018",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer",
+          "valueId": "1",
+          "valueText": "C1"
+        }
+      ],
+      "modifiers": null,
+      "id": 19
+    },
+    {
+      "name": "",
+      "code": "",
+      "description": "",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "",
+          "valueId": "",
+          "valueText": ""
+        }
+      ],
+      "modifiers": null,
+      "id": 20
+    },
+    {
+      "name": "Jan 2018",
+      "code": "201801",
+      "description": "Sales for Jan 2018",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer Group",
+          "valueId": "1",
+          "valueText": "CG11"
+        }
+      ],
+      "modifiers": null,
+      "id": 21
+    },
+    {
+      "name": "",
+      "code": "",
+      "description": "",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "",
+          "valueId": "",
+          "valueText": ""
+        }
+      ],
+      "modifiers": null,
+      "id": 22
     }
   ],
   "customers": [
@@ -436,19 +631,19 @@
       "currency": "USD"
     }
   ],
-  "lookups" : [
+  "lookups": [
     {
       "qualtype": [
-        { 
-          "id":1,
+        {
+          "id": 1,
           "value": "Customer"
-        }, 
+        },
         {
-          "id":2,
+          "id": 2,
           "value": "Customer Group"
-        }, 
+        },
         {
-          "id":3,
+          "id": 3,
           "value": "Territory"
         }
       ]

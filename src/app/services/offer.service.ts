@@ -21,4 +21,8 @@ export class OfferService {
     return this.restangular.all('lookups').getList()
     .map(lookups => lookups[0]);
   }
+
+  postOffer(data) {
+    return this.restangular.all('offers').post(data);
+  }
 }

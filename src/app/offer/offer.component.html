@@ -131,6 +131,15 @@
 
   <!-- Start of Create From -->
 
+  <div [hidden]="!offerCreateErr">
+    <h3>Error: Offer creation failed...</h3> 
+    {{offerCreateErr}}
+  </div>
+  <div [hidden]="!submitAction">
+    <mat-progress-spinner style="margin:0 auto;" mode="indeterminate"></mat-progress-spinner>
+    <h4 style="text-align:center;">Creation in progress. . . Please Wait</h4>
+  </div>
+
   <form novalidate [formGroup]="offerForm" (ngSubmit)="onOfferFormSubmit()">
     <mat-accordion class="create-headers-align">
         <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
@@ -194,7 +203,8 @@
               </mat-form-field>
 
               <mat-form-field>
-                <input matInput formControlName="valueText" placeholder="Qualifier Name" readonly>
+                <input matInput formControlName="valueText" placeholder="Qualifier Name" readonly 
+                    matTooltip="Select Qualifier Type and then use button" matTooltipPosition="below">
               </mat-form-field>
               <a mat-raised-button (click)="openDialog(i)">Select</a>
               <a mat-button color="warn" (click)="removeQualifier(i)">
