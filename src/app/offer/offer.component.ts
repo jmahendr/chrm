@@ -186,18 +186,31 @@ export class OfferComponent implements OnInit {
   }
 
   openDialog(i): void {
+
+    let qualifiers = <FormArray>this.offerForm.get('qualifiers');
+    let typeControl = <FormControl>qualifiers.at(i).get('type')
+
     let dialogRef = this.dialog.open(QualLOV, {
-      width: '250px',
-      data: { t: 1}
+      width: '500px',
+      data: { type: typeControl.value, returnId: '', returnText: ''}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(i + ' The dialog was closed ' + result);
-      let qualifiers = <FormArray>this.offerForm.get('qualifiers');
-      let valueTextControl = <FormControl>qualifiers.at(i).get('valueText')
+      console.debug('The dialog '+ i + ' was closed with ' + result);
       
-      console.log('trying to get fc ' + valueTextControl.value);
-      valueTextControl.setValue(result);
+      /* Check for result != undefined - this occurs when the dialog is closed without values (aka cancelled) */
+      if(result != undefined) {
+        let valueTextControl = <FormControl>qualifiers.at(i).get('valueText');
+        let valueIdControl = <FormControl>qualifiers.at(i).get('valueId');
+        if(result.returnText != undefined)
+          valueTextControl.setValue(result.returnText);
+        if(result.returnId != undefined)
+          valueIdControl.setValue(result.returnId);
+         
+        console.debug('trying to get Text fc ' + valueTextControl.value);
+        console.debug('trying to get Id fc ' + valueIdControl.value);
+    }
+      
       
     });
   } 
