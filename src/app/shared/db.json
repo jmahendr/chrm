@@ -574,6 +574,116 @@
       ],
       "modifiers": null,
       "id": 22
+    },
+    {
+      "name": "",
+      "code": "",
+      "description": "",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer Group",
+          "valueId": "5",
+          "valueText": "jhbjhk"
+        },
+        {
+          "type": "",
+          "valueId": "",
+          "valueText": ""
+        },
+        {
+          "type": "",
+          "valueId": "",
+          "valueText": ""
+        }
+      ],
+      "modifiers": null,
+      "id": 23
+    },
+    {
+      "name": "",
+      "code": "",
+      "description": "",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "",
+          "valueId": "",
+          "valueText": ""
+        }
+      ],
+      "modifiers": null,
+      "id": 24
+    },
+    {
+      "name": "TPG Discounts",
+      "code": "TPGDISC",
+      "description": "Discounts for TPG",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer Group",
+          "valueId": "1",
+          "valueText": "JAMES"
+        },
+        {
+          "type": "Territory",
+          "valueId": "1",
+          "valueText": "Territory"
+        }
+      ],
+      "modifiers": null,
+      "id": 25
+    },
+    {
+      "name": "Dell Promotions",
+      "code": "DELLDISC",
+      "description": "Discounts on Dell products",
+      "startDate": "",
+      "endDate": "",
+      "type": "",
+      "status": "",
+      "qualifiers": [
+        {
+          "type": "Customer",
+          "valueId": "1",
+          "valueText": "C11"
+        }
+      ],
+      "modifiers": null,
+      "id": 26
+    },
+    {
+      "name": "Business Promotions",
+      "code": "BPromotions",
+      "description": "Some text for description....",
+      "startDate": "2018-02-28T18:30:00.000Z",
+      "endDate": "2018-03-30T18:30:00.000Z",
+      "type": "Accrual",
+      "status": "Active",
+      "qualifiers": [
+        {
+          "type": "Customer Group",
+          "valueId": "1",
+          "valueText": "CG1"
+        },
+        {
+          "type": "Territory",
+          "valueId": "2",
+          "valueText": "Territory1"
+        }
+      ],
+      "modifiers": null,
+      "id": 27
     }
   ],
   "customers": [

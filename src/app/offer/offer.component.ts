@@ -190,7 +190,9 @@ export class OfferComponent implements OnInit {
         confirmDialogRef.afterClosed().subscribe(result => {
           console.debug('The confirm dialog was closed with ');
           this.offerForm.reset();
+          this.query();
           this.mode = 'summary';
+
 
         });//end of afterClose
 

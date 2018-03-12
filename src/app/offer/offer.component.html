@@ -160,6 +160,29 @@
           <mat-form-field>
             <input matInput formControlName="code" placeholder="Offer Code">
           </mat-form-field>
+
+          <mat-form-field>
+            <input matInput formControlName="startDate" placeholder="Start Date" 
+            [matDatepicker]="pickerSt" (focus)="pickerSt.open()" readonly>
+          </mat-form-field>
+          <mat-datepicker #pickerSt></mat-datepicker>
+
+          <mat-form-field>
+            <input matInput formControlName="endDate" placeholder="End Date" 
+            [matDatepicker]="pickerEd" (focus)="pickerEd.open()" readonly>
+          </mat-form-field>
+          <mat-datepicker #pickerEd></mat-datepicker>
+
+          <p>
+            <mat-form-field>
+              <input matInput formControlName="type" placeholder="Offer Type">
+            </mat-form-field>
+        
+            <mat-form-field>
+              <input matInput formControlName="status" placeholder="Offer Status">
+            </mat-form-field>
+          </p>
+
           <p>
           <mat-form-field class="txtarea"> 
               <textarea formControlName="description" matInput  
