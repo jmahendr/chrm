@@ -1,9 +1,9 @@
 import { Component, ViewChild, OnInit, Inject } from '@angular/core';
 import { OfferService } from "../services/offer.service";
 import { Offer } from "../shared/offer";
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-offer',
@@ -110,7 +110,14 @@ export class OfferComponent implements OnInit {
   }
 
   /**
+   * 
+   * 
+   * 
+   * 
    * Section for Offer Create
+   * 
+   * 
+   * 
    */
 
    offerForm: FormGroup;
@@ -207,7 +214,7 @@ export class OfferComponent implements OnInit {
     this.offerservice.getQualTypes()
     .subscribe(data => {
       this.qualtype = data["qualtype"]; 
-      console.log(JSON.stringify(this.qualtype))});
+      console.debug(JSON.stringify(this.qualtype))});
   }
 
   openDialog(i): void {

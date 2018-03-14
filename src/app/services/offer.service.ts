@@ -13,8 +13,12 @@ export class OfferService {
     return this.restangular.all('offers').getList();
   }
 
-  findOffers(query:Object) {
+  findOffers(query:Object): Observable<Offer[]> {
     return this.restangular.all('offers').getList(query);
+  }
+
+  findOfferById(id: number) : Observable<Offer> {
+    return this.restangular.one('offers', id).get();
   }
 
   getQualTypes() {
@@ -22,7 +26,7 @@ export class OfferService {
     .map(lookups => lookups[0]);
   }
 
-  postOffer(data) {
+  postOffer(data) : Observable<Offer> {
     return this.restangular.all('offers').post(data);
   }
 }

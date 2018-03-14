@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { OfferService } from "./services/offer.service";
 
 import { AppRoutingModule } from "./app-routing/app-routing.module";
+import { OfferDetailComponent } from './offer-detail/offer-detail.component';
 
 
 
@@ -28,7 +29,8 @@ import { AppRoutingModule } from "./app-routing/app-routing.module";
     OfferComponent,
     HomeComponent,
     QualLOV,
-    ConfirmDialog
+    ConfirmDialog,
+    OfferDetailComponent
   ],
   imports: [
     BrowserModule,
