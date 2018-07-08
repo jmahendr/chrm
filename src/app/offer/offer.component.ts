@@ -15,14 +15,14 @@ export class OfferComponent implements OnInit {
 
   constructor(private offerservice: OfferService,
     private fb: FormBuilder,
-    public dialog: MatDialog ) { 
+    public dialog: MatDialog ) {
       this.createSearchForm();
     }
 
   ngOnInit() {
     if(this.mode == 'summary')
       this.queryOffers();
-    this.loadLookups();
+    //this.loadLookups();
   }
 
   mode='summary';
@@ -65,7 +65,7 @@ export class OfferComponent implements OnInit {
       this.dataSource.paginator = this.paginator;},
     errorMsg => { this.offerError = <any>errorMsg; });
   }
-  
+
   query() {
     console.debug("query fired....");
     this.offers = null;
@@ -110,14 +110,14 @@ export class OfferComponent implements OnInit {
   }
 
   /**
-   * 
-   * 
-   * 
-   * 
+   *
+   *
+   *
+   *
    * Section for Offer Create
-   * 
-   * 
-   * 
+   *
+   *
+   *
    */
 
    offerForm: FormGroup;
@@ -141,11 +141,11 @@ export class OfferComponent implements OnInit {
    setStep(index: number) {
      this.step = index;
    }
- 
+
    nextStep() {
      this.step++;
    }
- 
+
    prevStep() {
      this.step--;
    }
@@ -213,7 +213,7 @@ export class OfferComponent implements OnInit {
   loadLookups() {
     this.offerservice.getQualTypes()
     .subscribe(data => {
-      this.qualtype = data["qualtype"]; 
+      this.qualtype = data["qualtype"];
       console.debug(JSON.stringify(this.qualtype))});
   }
 
@@ -229,7 +229,7 @@ export class OfferComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.debug('The dialog '+ i + ' was closed with ' + result);
-      
+
       /* Check for result != undefined - this occurs when the dialog is closed without values (aka cancelled) */
       if(result != undefined) {
         let valueTextControl = <FormControl>qualifiers.at(i).get('valueText');
@@ -238,16 +238,16 @@ export class OfferComponent implements OnInit {
           valueTextControl.setValue(result.returnText);
         if(result.returnId != undefined)
           valueIdControl.setValue(result.returnId);
-         
+
         console.debug('trying to get Text fc ' + valueTextControl.value);
         console.debug('trying to get Id fc ' + valueIdControl.value);
       }
     });//end of afterClose
-  }//end of openDialog 
+  }//end of openDialog
 }//enf of OfferComponent
 
 
-/** 
+/**
  * Dialog for Qualifier LOV
 */
 @Component({
@@ -267,7 +267,7 @@ export class QualLOV {
 }//end of QualLOV
 
 
-/** 
+/**
  * Dialog for Confirmation
 */
 @Component({

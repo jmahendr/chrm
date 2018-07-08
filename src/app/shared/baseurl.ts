@@ -2,4 +2,4 @@
 export const baseurl = 'http://localhost:4300/';
 
 /* This is the url for the Express Server for REST requests */
-export const serverurl = 'http://localhost:3000';
+export const serverurl = 'http://localhost:3000/api/';

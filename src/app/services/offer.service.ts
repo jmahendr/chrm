@@ -10,15 +10,15 @@ export class OfferService {
   constructor(private restangular: Restangular) { }
 
   getOffers() : Observable<Offer[]> {
-    return this.restangular.all('offers').getList();
+    return this.restangular.all('offer').getList();
   }
 
   findOffers(query:Object): Observable<Offer[]> {
-    return this.restangular.all('offers').getList(query);
+    return this.restangular.all('offer').getList(query);
   }
 
   findOfferById(id: number) : Observable<Offer> {
-    return this.restangular.one('offers', id).get();
+    return this.restangular.one('offer', id).get();
   }
 
   getQualTypes() {

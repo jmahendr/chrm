@@ -20,7 +20,7 @@ export class OfferDetailComponent implements OnInit {
     this.route.params
     .switchMap( (params: Params) => {return this.offerService.findOfferById(+params['id']);})
     .subscribe(
-      data => {this.offer = data;
+      data => {this.offer = data[0];
         console.debug(this.offer);},
       error => {console.error(error);});
   }
